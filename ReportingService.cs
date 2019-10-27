@@ -21,7 +21,7 @@ namespace ECommerce.Reporting.Api
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            _logger.LogDebug("Starting service bus");
+            _logger.LogDebug("正在启动服务总线");
 
             try
             {
@@ -29,18 +29,18 @@ namespace ECommerce.Reporting.Api
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error while startin service bus.");
+                _logger.LogError(ex, "启动服务总线时发生错误");
                 throw;
             }
 
-            _logger.LogInformation("Running Reporting microservice.");
+            _logger.LogInformation("报表 微服务已启动");
         }
 
         public async Task StopAsync(CancellationToken cancellationToken)
         {
             await _busControl.StopAsync();
 
-            _logger.LogInformation("Reporting microservice stopped.");
+            _logger.LogInformation("报表 微服务已停止");
         }
     }
 }
